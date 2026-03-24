@@ -1,6 +1,6 @@
 package com.kagan.ml.exception;
 
-public class InvalidMoveException extends Exception {
+public class InvalidMoveException extends RuntimeException {
 
     public InvalidMoveException(String message) {
         super(message);

@@ -2,6 +2,7 @@ package com.kagan.ml.game;
 
 import com.kagan.ml.board.Grid;
 import com.kagan.ml.board.type.Type;
+import com.kagan.ml.exception.InvalidMoveException;
 
 public class Game {
     private final Grid grid;
@@ -18,7 +19,7 @@ public class Game {
     }
 
     // Checks whether the game is finished. 
-    private boolean isGameFinished() {
+    private boolean isGameOver() {
         String marker;
         if (playerTurn) {
             marker = Marker.PLAYER_MARKER.getMarker();
@@ -31,10 +32,15 @@ public class Game {
                 grid.isVerticalBlock(marker);
     }
 
-    // Checks whether the move is valid.
+    // Checks whether the cell is empty.
     private boolean isCellAvailable(int y, int x) {
         String[][] logic = grid.getMoveTable();
         return logic[y][x].equals(null);
+    }
+
+    // Checks whetehr the move is valid.
+    private boolean isMoveEligible(int y, int x) {
+        return y >= 1 && y <= 3 && x >= 1 && x <= 3;
     }
     
     /**
@@ -44,16 +50,16 @@ public class Game {
      * @param x is the value of x axis.
      */
     public void setHumanMove(int y, int x) {
-        String marker = Marker.PLAYER_MARKER.getMarker();
-        if (isGameFinished(marker)) {
-            System.out.println("Game is already finished.");
-            return;
+        if (!isMoveEligible(y, x)) {
+            throw new InvalidMoveException("Move is invalid");
         }
 
         if (!isCellAvailable(y, x)) {
-            System.out.println("Move is not valid.");
+            throw new InvalidMoveException("Move is invalid");
         }
 
+        String marker = Marker.PLAYER_MARKER.getMarker();
+        grid.setMoveLogic(y, x, marker);
         grid.setCell(y, x, marker);
     }
 }
