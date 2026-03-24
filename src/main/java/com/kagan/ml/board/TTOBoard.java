@@ -18,6 +18,9 @@ public class TTOBoard implements Board {
         grid.setGrid(newGrid);
     }
 
+    /**
+     * Builds vertical lines "|".
+     */
     @Override
     public void setVerticals() {
         for (int i = 1; i < grid.getHeight(); i += 2) {
@@ -27,6 +30,9 @@ public class TTOBoard implements Board {
         }
     }
 
+    /**
+     * Builds horizontal lines "_".
+     */
     @Override
     public void setHorizontals() {
         for (int i = 0; i < grid.getHeight(); i += 2) {
@@ -36,6 +42,9 @@ public class TTOBoard implements Board {
         }
     }
 
+    /**
+     * Builds spaces for player marker.
+     */
     @Override
     public void setSpaces() {
         for (int i = 0; i < grid.getHeight(); i++) {
@@ -47,6 +56,11 @@ public class TTOBoard implements Board {
         }
     }
 
+    /**
+     * Returns the grid.
+     * 
+     * @return grid as an object
+     */
     public Grid build() {
         return grid;
     }
