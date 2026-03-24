@@ -1,4 +1,4 @@
-package com.kagan.ml.board.Type;
+package com.kagan.ml.board.type;
 
 public enum Type {
     THREE_BY_THREE(3, 3);
