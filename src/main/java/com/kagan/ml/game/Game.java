@@ -8,41 +8,20 @@ public class Game {
     private int playerScore;
     private int aiScore;
     private boolean playerTurn; // true: Human && false: AI
-    private int verticleParser; 
 
     public Game(Grid grid) {
         this.grid = grid;
         this.playerScore = 0;
         this.aiScore = 0;
         this.playerTurn = true;
-        int verticleParser = Type.THREE
+
     }
 
-    private boolean isVerticalBlock() {
-        String marker;
-        if (playerTurn) {
-            marker = Marker.PLAYER_MARKER.getMarker();
-        } else {
-            marker = Marker.AI_MARKER.getMarker();
-        }
-
-        boolean isVerticalBlock = false;
-
-        for (int i = 1; i < grid.getHeight() - 6; i += 2)
-    }
-
-    private boolean isGameFinished() {
-        boolean isGameFinished = false;
-        for (int i = 1; i < grid.getHeight() - 6; i += 2) {
-            for (int j = 0; j < grid.getWidth() - 6; j += 2) {
-                if (grid[])
-            }
-        } 
+    private boolean isGameFinished(String marker) {
+        return grid.isDiagonalBlock(marker) || grid.isHorizontalBlock(marker) || grid.isDiagonalBlock(marker);
     }
 
     public void minimaxAlgo() {
 
     }
-
-
 }
