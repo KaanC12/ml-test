@@ -26,6 +26,17 @@ public class Grid {
      * @return move table
      */
     public String[][] getMoveTable() { return this.moveTable; }
+
+    /**
+     * Sets the logic.
+     * 
+     * @param height is y axis coordinate 
+     * @param width is x axis coordinate
+     * @param obj is marker
+     */
+    public void setMoveLogic(int height, int width, String obj) {
+        moveTable[height][width] = obj;
+    }
     
     /**
      * Gives the length of the y axis.

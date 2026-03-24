@@ -18,13 +18,23 @@ public class Game {
     }
 
     // Checks whether the game is finished. 
-    private boolean isGameFinished(String marker) {
-        return grid.isDiagonalBlock(marker) || grid.isHorizontalBlock(marker) || grid.isDiagonalBlock(marker);
+    private boolean isGameFinished() {
+        String marker;
+        if (playerTurn) {
+            marker = Marker.PLAYER_MARKER.getMarker();
+        } else {
+            marker = Marker.AI_MARKER.getMarker();
+        }
+
+        return grid.isDiagonalBlock(marker) ||
+                grid.isHorizontalBlock(marker) ||
+                grid.isVerticalBlock(marker);
     }
 
     // Checks whether the move is valid.
     private boolean isCellAvailable(int y, int x) {
-        return grid.getCell(y, x).equals(" ");
+        String[][] logic = grid.getMoveTable();
+        return logic[y][x].equals(null);
     }
     
     /**
