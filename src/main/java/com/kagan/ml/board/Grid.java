@@ -19,6 +19,13 @@ public class Grid {
      * @param moveTable is a 3x3 string array
      */
     public void setMoveTable(String[][] moveTable) { this.moveTable= moveTable; }
+
+    /**
+     * Gives the move table.
+     * 
+     * @return move table
+     */
+    public String[][] getMoveTable() { return this.moveTable; }
     
     /**
      * Gives the length of the y axis.
