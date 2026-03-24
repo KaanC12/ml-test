@@ -17,11 +17,33 @@ public class Game {
 
     }
 
+    // Checks whether the game is finished. 
     private boolean isGameFinished(String marker) {
         return grid.isDiagonalBlock(marker) || grid.isHorizontalBlock(marker) || grid.isDiagonalBlock(marker);
     }
 
-    public void minimaxAlgo() {
+    // Checks whether the move is valid.
+    private boolean isCellAvailable(int y, int x) {
+        return grid.getCell(y, x).equals(" ");
+    }
+    
+    /**
+     * Puts the human move on the board.
+     * 
+     * @param y is the value of y axis.
+     * @param x is the value of x axis.
+     */
+    public void setHumanMove(int y, int x) {
+        String marker = Marker.PLAYER_MARKER.getMarker();
+        if (isGameFinished(marker)) {
+            System.out.println("Game is already finished.");
+            return;
+        }
 
+        if (!isCellAvailable(y, x)) {
+            System.out.println("Move is not valid.");
+        }
+
+        grid.setCell(y, x, marker);
     }
 }
