@@ -5,21 +5,65 @@ public class Grid {
     private int height;
     private int width;
 
+    /**
+     * Changes the grid.
+     * 
+     * @param grid is the new grid
+     */
     public void setGrid(String[][] grid) { this.grid = grid; }
     
-    // Height operations
+    /**
+     * Gives the length of the y axis.
+     * 
+     * @return length of y axis
+     */
     public int getHeight() { return this.height; }
+
+    /**
+     * Sets the new height to old one.
+     * 
+     * @param height is the input
+     */
     public void setHeight(int height) { this.height = height; }
     
-    // Width operations
+    /**
+     * Gives the length of the x axis.
+     * 
+     * @return length of x axis
+     */
     public int getWidth() { return width; }
+
+    /**
+     * Sets the new width to old one.
+     * 
+     * @param width is the input
+     */
     public void setWidth(int width) { this.width = width; }
     
-    // Cell operations
+    /**
+     * Gives the object on the cell.
+     * 
+     * @param height is the input for y axis
+     * @param width is the input for x axis
+     * @return player's marker
+     */
     public String getCell(int height, int width) { return grid[height][width]; }
+
+    /**
+     * Marks the cell
+     * 
+     * @param height is the input for y axis
+     * @param width is the input for x axis
+     * @param obj is the marker of player
+     */
     public void setCell(int height, int width, String obj) { grid[height][width] = obj; }
 
-    // Game Control
+    /**
+     * Checks whether ther is any vertical block
+     * 
+     * @param marker of player
+     * @return {@code true} if there is a vertical block
+     */
     public boolean isVerticalBlock(String marker) {
         boolean isVerticalBlock = false;
 
@@ -36,6 +80,12 @@ public class Grid {
         return isVerticalBlock;
     }
 
+    /**
+     * Checks whether there is any horizontal block.
+     * 
+     * @param marker of player
+     * @return {@code true} if there is a horizontal block
+     */
     public boolean isHorizontalBlock(String marker) {
         boolean isHorizontalBlock = false;
 
@@ -52,6 +102,12 @@ public class Grid {
         return isHorizontalBlock;
     }
 
+    /**
+     * Checks whether there is a horizontal block.
+     * 
+     * @param marker of player
+     * @return {@code true} if there is a diagonal block
+     */
     public boolean isDiagonalBlock(String marker) {
         boolean isDiagonalBlock = false;
 
@@ -73,6 +129,9 @@ public class Grid {
         return isDiagonalBlock;
     }
 
+    /**
+     * Converts 2D array into String.
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
