@@ -15,6 +15,8 @@ public class TTOBoard implements Board {
         grid.setWidth(width);
 
         String[][] newGrid = new String[height][width];
+        String[][] moveTable = new String[boardType.getHeight()][boardType.getWidth()];
+        grid.setMoveTable(moveTable);
         grid.setGrid(newGrid);
     }
 

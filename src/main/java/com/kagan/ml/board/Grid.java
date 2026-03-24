@@ -2,6 +2,7 @@ package com.kagan.ml.board;
 
 public class Grid {
     private String[][] grid;
+    private String[][] moveTable;
     private int height;
     private int width;
 
@@ -11,6 +12,13 @@ public class Grid {
      * @param grid is the new grid
      */
     public void setGrid(String[][] grid) { this.grid = grid; }
+
+    /**
+     * Move table demonstrates the logic.
+     * 
+     * @param moveTable is a 3x3 string array
+     */
+    public void setMoveTable(String[][] moveTable) { this.moveTable= moveTable; }
     
     /**
      * Gives the length of the y axis.
