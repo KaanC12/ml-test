@@ -1,5 +1,8 @@
 package com.kagan.ml.board;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Grid {
     private String[][] grid;
     private String[][] moveTable;
@@ -153,6 +156,24 @@ public class Grid {
             isDiagonalBlock = true;
         }
         return isDiagonalBlock;
+    }
+
+    /**
+     * Returns a list of available moves. 
+     * 
+     * @return available move list
+     */
+    public List<int[]> getAvailableMoves() {
+        List<int[]> availableMoves = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (moveTable[i][i] == null) {
+                    availableMoves.add(new int[]{i + 1, j + 1});
+                }
+            }
+        }
+
+        return availableMoves;
     }
 
     /**

@@ -1,5 +1,8 @@
 package com.kagan.ml.game;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.kagan.ml.board.Grid;
 import com.kagan.ml.board.type.Type;
 import com.kagan.ml.exception.InvalidMoveException;
@@ -61,5 +64,44 @@ public class Game {
         String marker = Marker.PLAYER_MARKER.getMarker();
         grid.setMoveLogic(y, x, marker);
         grid.setCell(y, x, marker);
+    }
+
+    public int evaluate() {
+        String aiMarker = Marker.AI_MARKER.getMarker();
+        String humanMarker = Marker.PLAYER_MARKER.getMarker();
+
+        int skor;
+
+        if (
+            grid.isDiagonalBlock(aiMarker) ||
+            grid.isHorizontalBlock(aiMarker) ||
+            grid.isVerticalBlock(aiMarker)
+        ) {
+            skor = 1;
+        } else if (
+            grid.isDiagonalBlock(humanMarker) ||
+            grid.isHorizontalBlock(humanMarker) ||
+            grid.isVerticalBlock(humanMarker)
+        ) {
+            skor = -1;
+        } else {
+            skor = 0;
+        }
+
+        return skor;
+    }
+
+    public 
+
+    public int minimax() {
+        if (isGameOver()) {
+            return evaluate();
+        }
+
+        if (!playerTurn) {
+            int best = Integer.MIN_VALUE;
+
+            for ()
+        }
     }
 }
