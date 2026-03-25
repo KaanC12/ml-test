@@ -127,4 +127,27 @@ public class Game {
             return best;
         }
     }
+
+    public int[] findBestMove() {
+        int bestScore = Integer.MIN_VALUE;
+        int[] bestMove = null;
+
+        for (int[] move : grid.getAvailableMoves()) {
+            int y = move[0];
+            int x = move[1];
+
+            grid.setCell(y, x, Marker.AI_MARKER.getMarker());
+
+            int score = minimax(playerTurn);
+
+            grid.undo(y, x);
+
+            if (score > bestScore) {
+                bestScore = score;
+                bestMove = move;
+            }
+        }
+
+        return bestMove;
+    }
 }
