@@ -1,10 +1,6 @@
 package com.kagan.ml.game;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.kagan.ml.board.Grid;
-import com.kagan.ml.board.type.Type;
 import com.kagan.ml.exception.InvalidMoveException;
 
 public class Game {
@@ -90,18 +86,45 @@ public class Game {
 
         return skor;
     }
-
-    public 
-
-    public int minimax() {
+ 
+    public int minimax(boolean turn) {
         if (isGameOver()) {
             return evaluate();
         }
 
-        if (!playerTurn) {
+        if (turn) {
             int best = Integer.MIN_VALUE;
 
-            for ()
+            for (int[] move : grid.getAvailableMoves()) {
+                int y = move[0];
+                int x = move[1];
+
+                grid.setCell(y, x, Marker.AI_MARKER.getMarker());
+
+                int score = minimax(false);
+
+                grid.undo(y, x);
+
+                best = Math.max(best, score);
+            }
+            return best;
+        } else {
+            int best = Integer.MAX_VALUE;
+
+            for (int[] move : grid.getAvailableMoves()) {
+                int y = move[0];
+                int x = move[1];
+
+                grid.setCell(y, x, Marker.PLAYER_MARKER.getMarker());
+
+                int score = minimax(true);
+
+                grid.undo(y, x);
+
+                best = Math.min(best, score);
+            }
+
+            return best;
         }
     }
 }

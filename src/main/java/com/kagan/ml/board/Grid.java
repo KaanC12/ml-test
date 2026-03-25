@@ -175,6 +175,17 @@ public class Grid {
 
         return availableMoves;
     }
+    
+    /**
+     * Removes the last move. 
+     * 
+     * @param y coordinate of the board
+     * @param x coordinate of the board
+     */
+    public void undo(int y, int x) {
+        moveTable[y][x] = null;
+        grid[2 * y - 1][2 * x - 1] = " ";
+    }
 
     /**
      * Converts 2D array into String.
