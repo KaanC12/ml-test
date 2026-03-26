@@ -62,6 +62,11 @@ public class Game {
         grid.setCell(y, x, marker);
     }
 
+    /**
+     * Evalueates the numerical value of the move.
+     * 
+     * @return evaluation of the move
+     */
     public int evaluate() {
         String aiMarker = Marker.AI_MARKER.getMarker();
         String humanMarker = Marker.PLAYER_MARKER.getMarker();
@@ -86,7 +91,13 @@ public class Game {
 
         return skor;
     }
- 
+    
+    /**
+     * Minimax algorithm for the game.
+     * 
+     * @param turn if {@code true} human plays if {@code false} AI plays
+     * @return move value
+     */
     public int minimax(boolean turn) {
         if (isGameOver()) {
             return evaluate();
@@ -128,6 +139,11 @@ public class Game {
         }
     }
 
+    /**
+     * Finds the best move. 
+     * 
+     * @return the coordinates of the move 
+     */
     public int[] findBestMove() {
         int bestScore = Integer.MIN_VALUE;
         int[] bestMove = null;
