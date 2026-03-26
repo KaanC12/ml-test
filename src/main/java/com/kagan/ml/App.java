@@ -16,6 +16,7 @@ public class App {
 
         System.out.println("Please enter the board type:");
         String boardType = sc.nextLine();
+        sc.nextLine();
 
         String correctedBoardType = TypeChecker.correctTypeInput(boardType);
 
@@ -25,13 +26,21 @@ public class App {
 
         Director director = new Director();
         TTOBoard ttoBoard = new TTOBoard(correctedBoardType);
-        ttoBoard.setHorizontals();
-        ttoBoard.setVerticals();
-        ttoBoard.setSpaces();
+        director.makeTTOBoard(ttoBoard);
         
         Grid grid = ttoBoard.build();
 
         Game game = new Game(grid);
+
+        while (game.isGameOver()) {
+            boolean turn = game.getPlayerTurn();
+
+            if (turn) {
+                System.out.println("Human's turn please make a move.");
+                
+
+            }
+        }
 
         
     }
