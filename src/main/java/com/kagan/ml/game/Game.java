@@ -18,6 +18,19 @@ public class Game {
     }
 
     /**
+     * Shows whose turn.
+     * 
+     * @return if {@code true} human plays, if {@code false} AI plays 
+     */
+    public boolean getPlayerTurn() { return playerTurn; }
+
+    /**
+     * Shifts the player's turn.
+     * 
+     */
+    public void togglePlayerTurn() {playerTurn = !playerTurn; }
+
+    /**
      * Checks whether the game is over.
      * 
      * @return {@code true} if game is over {@code false} game is not over yet.
