@@ -80,6 +80,26 @@ public class Game {
     }
 
     /**
+     * Makes the move on the board for AI
+     * 
+     * @param y axis coordinate of the board
+     * @param x axis coordinate of the board
+     */
+    public void setAIMove(int y, int x) {
+        if (!isMoveEligible(y, x)) {
+            throw new InvalidMoveException("Move is invalid");
+        }
+
+        if (!isCellAvailable(y, x)) {
+            throw new InvalidMoveException("Move is invalid");
+        }
+
+        String marker = Marker.AI_MARKER.getMarker();
+        grid.setMoveLogic(y - 1, x - 1, marker);
+        grid.setCell(2 * y - 1, 2 * x - 1, marker);
+    }
+
+    /**
      * Evalueates the numerical value of the move.
      * 
      * @return evaluation of the move

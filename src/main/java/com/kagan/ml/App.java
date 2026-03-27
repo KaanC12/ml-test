@@ -45,6 +45,10 @@ public class App {
                 int xCoord = coords[1];
 
                 game.setHumanMove(yCoord, xCoord);
+                game.togglePlayerTurn();
+
+            } else {
+                
             }
 
             System.out.println(grid.toString());
