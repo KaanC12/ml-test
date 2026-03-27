@@ -51,7 +51,7 @@ public class Game {
     // Checks whether the cell is empty.
     private boolean isCellAvailable(int y, int x) {
         String[][] logic = grid.getMoveTable();
-        return logic[y][x].equals(null);
+        return logic[y][x] == null;
     }
 
     // Checks whetehr the move is valid.
@@ -75,8 +75,8 @@ public class Game {
         }
 
         String marker = Marker.PLAYER_MARKER.getMarker();
-        grid.setMoveLogic(y, x, marker);
-        grid.setCell(y, x, marker);
+        grid.setMoveLogic(y - 1, x - 1, marker);
+        grid.setCell(y - 1, x - 1, marker);
     }
 
     /**

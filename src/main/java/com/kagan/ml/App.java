@@ -6,6 +6,7 @@ import com.kagan.ml.board.Director;
 import com.kagan.ml.board.TTOBoard;
 import com.kagan.ml.exception.InvalidTypeError;
 import com.kagan.ml.game.Game;
+import com.kagan.ml.util.MoveParser;
 import com.kagan.ml.util.TypeChecker;
 import com.kagan.ml.board.Grid;
 
@@ -16,7 +17,7 @@ public class App {
 
         System.out.println("Please enter the board type:");
         String boardType = sc.nextLine();
-        sc.nextLine();
+        
 
         String correctedBoardType = TypeChecker.correctTypeInput(boardType);
 
@@ -32,14 +33,23 @@ public class App {
 
         Game game = new Game(grid);
 
-        while (game.isGameOver()) {
+        while (!game.isGameOver()) {
             boolean turn = game.getPlayerTurn();
 
             if (turn) {
-                System.out.println("Human's turn please make a move.");
-                
+                System.out.println("Human's turn please enter your move:");
+                String move = sc.nextLine();
+                int[] coords = MoveParser.parseMove(move);
 
+                int yCoord = coords[0];
+                int xCoord = coords[1];
+
+                game.setHumanMove(yCoord, xCoord);
             }
+
+            System.out.println(grid.toString());
+
+            break;
         }
 
         
