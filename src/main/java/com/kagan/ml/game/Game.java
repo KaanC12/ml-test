@@ -76,7 +76,7 @@ public class Game {
 
         String marker = Marker.PLAYER_MARKER.getMarker();
         grid.setMoveLogic(y - 1, x - 1, marker);
-        grid.setCell(y - 1, x - 1, marker);
+        grid.setCell(2 * y - 1, 2 * x - 1, marker);
     }
 
     /**
