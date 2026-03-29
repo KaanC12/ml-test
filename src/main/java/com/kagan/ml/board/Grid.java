@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Grid {
+    private final static int BOARD_X_LENGTH = 3;
+    private final static int BOARD_Y_LENGTH = 3;
+
     private String[][] grid;
     private String[][] moveTable;
     private int height;
@@ -118,7 +121,7 @@ public class Grid {
     public boolean isVerticalBlockLogic(String marker) {
         boolean isVerticalBlock = false;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < BOARD_X_LENGTH; i++) {
             if (
                 marker.equals(moveTable[0][i]) &&
                 marker.equals(moveTable[1][i]) &&
@@ -162,7 +165,7 @@ public class Grid {
     public boolean isHorizontalBlockLogic(String marker) {
         boolean isHorizontal = false;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < BOARD_Y_LENGTH; i++) {
             if (
                 marker.equals(moveTable[i][0]) &&
                 marker.equals(moveTable[i][1]) &&
@@ -227,8 +230,8 @@ public class Grid {
      */
     public List<int[]> getAvailableMoves() {
         List<int[]> availableMoves = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
+        for (int i = 0; i < BOARD_Y_LENGTH; i++) {
+            for (int j = 0; j < BOARD_X_LENGTH; j++) {
                 if (moveTable[i][j] == null) {
                     availableMoves.add(new int[]{i, j});
                 }
@@ -244,9 +247,7 @@ public class Grid {
      * @param y coordinate of the board
      * @param x coordinate of the board
      */
-    public void undo(int y, int x) {
-        moveTable[y][x] = null;
-    }
+    public void undo(int y, int x) { moveTable[y][x] = null; }
 
     /**
      * Converts 2D array into String.
