@@ -12,6 +12,13 @@ import com.kagan.ml.board.Grid;
 
 
 public class App {
+    private final static String HUMAN_WINNER_MESSAGE = "Human won the game.";
+    private final static String AI_WINNER_MESSAGE = "Ai won the game.";
+    private final static int HUMAN_COORD_BASE = 1;
+    private final static int Y_INDEX = 0;
+    private final static int X_INDEX = 1;
+
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -41,8 +48,8 @@ public class App {
                 String move = sc.nextLine();
                 int[] coords = MoveParser.parseMove(move);
 
-                int yCoord = coords[0];
-                int xCoord = coords[1];
+                int yCoord = coords[Y_INDEX];
+                int xCoord = coords[X_INDEX];
 
                 game.setHumanMove(yCoord, xCoord);
                 game.togglePlayerTurn();
@@ -51,8 +58,8 @@ public class App {
                 System.out.println("AI's turn please enter your move.");
                 int[] coords = game.findBestMove();
 
-                int yCoord = coords[0] + 1;
-                int xCoord = coords[1] + 1;
+                int yCoord = coords[Y_INDEX] + HUMAN_COORD_BASE;
+                int xCoord = coords[X_INDEX] + HUMAN_COORD_BASE;
 
                 game.setAIMove(yCoord, xCoord);
                 game.togglePlayerTurn();
@@ -62,7 +69,7 @@ public class App {
 
         }
 
-        String winner = game.getPlayerTurn() ? "AI won the game" : "Human won the game";
+        String winner = game.getPlayerTurn() ? AI_WINNER_MESSAGE : HUMAN_WINNER_MESSAGE;
 
         System.out.println(winner);
     }
