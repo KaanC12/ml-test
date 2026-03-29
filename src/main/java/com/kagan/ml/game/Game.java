@@ -105,21 +105,21 @@ public class Game {
      * @return evaluation of the move
      */
     public int evaluate() {
-        String aiMarker = Marker.AI_MARKER.getMarker();
-        String humanMarker = Marker.PLAYER_MARKER.getMarker();
+        String ai = Marker.AI_MARKER.getMarker();
+        String human = Marker.PLAYER_MARKER.getMarker();
 
         int skor;
 
         if (
-            grid.isDiagonalBlock(aiMarker) ||
-            grid.isHorizontalBlock(aiMarker) ||
-            grid.isVerticalBlock(aiMarker)
+            grid.isDiagonalBlock(ai) ||
+            grid.isHorizontalBlock(ai) ||
+            grid.isVerticalBlock(ai)
         ) {
             skor = 1;
         } else if (
-            grid.isDiagonalBlock(humanMarker) ||
-            grid.isHorizontalBlock(humanMarker) ||
-            grid.isVerticalBlock(humanMarker)
+            grid.isDiagonalBlock(human) ||
+            grid.isHorizontalBlock(human) ||
+            grid.isVerticalBlock(human)
         ) {
             skor = -1;
         } else {

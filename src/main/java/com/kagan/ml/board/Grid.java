@@ -110,6 +110,28 @@ public class Grid {
     }
 
     /**
+     * Chechks whether there is a vertical block on logic board.
+     * 
+     * @param marker of the player
+     * @return {@code true} if therer is a vertical on the board else {@code false}
+     */
+    public boolean isVerticalBlockLogic(String marker) {
+        boolean isVerticalBlock = false;
+
+        for (int i = 0; i < 3; i++) {
+            if (
+                marker.equals(moveTable[0][i]) &&
+                marker.equals(moveTable[1][i]) &&
+                marker.equals(moveTable[2][i])
+            ) {
+                isVerticalBlock = true;
+            }
+        }
+
+        return isVerticalBlock;
+    }
+
+    /**
      * Checks whether there is any horizontal block.
      * 
      * @param marker of player
@@ -129,6 +151,28 @@ public class Grid {
         }
 
         return isHorizontalBlock;
+    }
+
+    /**
+     * Checks whether there is a horizontal block on board.
+     * 
+     * @param marker of the player
+     * @return {@code true} if there is a block else {@code false}
+     */
+    public boolean isHorizontalBlockLogic(String marker) {
+        boolean isHorizontal = false;
+
+        for (int i = 0; i < 3; i++) {
+            if (
+                marker.equals(moveTable[i][0]) &&
+                marker.equals(moveTable[i][1]) &&
+                marker.equals(moveTable[i][2])
+            ) {
+                isHorizontal = true;
+            }
+        }
+
+        return isHorizontal;
     }
 
     /**
@@ -156,6 +200,24 @@ public class Grid {
             isDiagonalBlock = true;
         }
         return isDiagonalBlock;
+    }
+
+    /**
+     * Checks whether there is a dioagonal block on logic table.
+     * 
+     * @param marker of the player
+     * @return {@code ture} if diagonal else {@code false}
+     */
+    public boolean isDiagonalBlockLogic(String marker) {
+        return (
+            marker.equals(moveTable[0][0]) &&
+            marker.equals(moveTable[1][1]) &&
+            marker.equals(moveTable[2][2])
+        ) || (
+            marker.equals(moveTable[0][2]) &&
+            marker.equals(moveTable[1][1]) &&
+            marker.equals(moveTable[2][0])
+        );
     }
 
     /**
