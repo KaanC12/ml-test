@@ -246,7 +246,6 @@ public class Grid {
      */
     public void undo(int y, int x) {
         moveTable[y][x] = null;
-        grid[2 * ( y + 1) - 1][2 * (x + 1) - 1] = " ";
     }
 
     /**

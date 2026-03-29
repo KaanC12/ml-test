@@ -76,7 +76,7 @@ public class Game {
 
         String marker = Marker.PLAYER_MARKER.getMarker();
         grid.setMoveLogic(y - 1, x - 1, marker);
-        grid.setCell(2 * y - 1, 2 * x - 1, marker);
+        grid.setCell(2 * (y - 1) + 1, 2 * (x - 1) + 1, marker);
     }
 
     /**
@@ -96,7 +96,7 @@ public class Game {
 
         String marker = Marker.AI_MARKER.getMarker();
         grid.setMoveLogic(y - 1, x - 1, marker);
-        grid.setCell(2 * y - 1, 2 * x - 1, marker);
+        grid.setCell(2 * (y - 1) + 1, 2 * (x - 1) + 1, marker);
     }
 
     /**
@@ -111,15 +111,15 @@ public class Game {
         int skor;
 
         if (
-            grid.isDiagonalBlock(ai) ||
-            grid.isHorizontalBlock(ai) ||
-            grid.isVerticalBlock(ai)
+            grid.isDiagonalBlockLogic(ai) ||
+            grid.isHorizontalBlockLogic(ai) ||
+            grid.isVerticalBlockLogic(ai)
         ) {
             skor = 1;
         } else if (
-            grid.isDiagonalBlock(human) ||
-            grid.isHorizontalBlock(human) ||
-            grid.isVerticalBlock(human)
+            grid.isDiagonalBlockLogic(human) ||
+            grid.isHorizontalBlockLogic(human) ||
+            grid.isVerticalBlockLogic(human)
         ) {
             skor = -1;
         } else {

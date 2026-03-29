@@ -51,15 +51,19 @@ public class App {
                 System.out.println("AI's turn please enter your move.");
                 int[] coords = game.findBestMove();
 
-                int yCoord = coords[0];
-                int xCoord = coords[1];
+                int yCoord = coords[0] + 1;
+                int xCoord = coords[1] + 1;
 
-                game.setAIMove(2 * yCoord + 1, 2 * xCoord + 1);
+                game.setAIMove(yCoord, xCoord);
                 game.togglePlayerTurn();
             }
 
             System.out.println(grid.toString());
 
         }
+
+        String winner = game.getPlayerTurn() ? "AI won the game" : "Human won the game";
+
+        System.out.println(winner);
     }
 }
