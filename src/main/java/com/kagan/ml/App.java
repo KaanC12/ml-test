@@ -48,12 +48,13 @@ public class App {
                 game.togglePlayerTurn();
 
             } else {
+                System.out.println("AI's turn please enter your move.");
                 int[] coords = game.findBestMove();
 
                 int yCoord = coords[0];
                 int xCoord = coords[1];
 
-                game.setAIMove(yCoord, xCoord);
+                game.setAIMove(2 * yCoord + 1, 2 * xCoord + 1);
                 game.togglePlayerTurn();
             }
 
