@@ -48,14 +48,17 @@ public class App {
                 game.togglePlayerTurn();
 
             } else {
-                
+                int[] coords = game.findBestMove();
+
+                int yCoord = coords[0];
+                int xCoord = coords[1];
+
+                game.setAIMove(yCoord, xCoord);
+                game.togglePlayerTurn();
             }
 
             System.out.println(grid.toString());
 
-            break;
         }
-
-        
     }
 }

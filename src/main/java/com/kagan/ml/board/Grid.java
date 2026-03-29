@@ -167,8 +167,8 @@ public class Grid {
         List<int[]> availableMoves = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (moveTable[i][i] == null) {
-                    availableMoves.add(new int[]{i + 1, j + 1});
+                if (moveTable[i][j] == null) {
+                    availableMoves.add(new int[]{i, j});
                 }
             }
         }
@@ -184,7 +184,7 @@ public class Grid {
      */
     public void undo(int y, int x) {
         moveTable[y][x] = null;
-        grid[2 * y - 1][2 * x - 1] = " ";
+        grid[2 * ( y + 1) - 1][2 * (x + 1) - 1] = " ";
     }
 
     /**

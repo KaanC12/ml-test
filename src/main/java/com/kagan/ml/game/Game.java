@@ -36,22 +36,22 @@ public class Game {
      * @return {@code true} if game is over {@code false} game is not over yet.
      */ 
     public boolean isGameOver() {
-        String marker;
-        if (playerTurn) {
-            marker = Marker.PLAYER_MARKER.getMarker();
-        } else {
-            marker = Marker.AI_MARKER.getMarker();
-        }
+        String ai = Marker.AI_MARKER.getMarker();
+        String human = Marker.PLAYER_MARKER.getMarker();
 
-        return grid.isDiagonalBlock(marker) ||
-                grid.isHorizontalBlock(marker) ||
-                grid.isVerticalBlock(marker);
+        return grid.isDiagonalBlock(ai) ||
+                grid.isHorizontalBlock(ai) ||
+                grid.isVerticalBlock(ai) ||
+
+                grid.isDiagonalBlock(human) ||
+                grid.isHorizontalBlock(human) ||
+                grid.isVerticalBlock(human);
     }
 
     // Checks whether the cell is empty.
     private boolean isCellAvailable(int y, int x) {
         String[][] logic = grid.getMoveTable();
-        return logic[y][x] == null;
+        return logic[y - 1][x - 1] == null;
     }
 
     // Checks whetehr the move is valid.
@@ -129,33 +129,32 @@ public class Game {
         return skor;
     }
     
-    /**
-     * Minimax algorithm for the game.
-     * 
-     * @param turn if {@code true} human plays if {@code false} AI plays
-     * @return move value
-     */
-    public int minimax(boolean turn) {
-        if (isGameOver()) {
-            return evaluate();
-        }
+    
+    private int minimax(boolean isHumanTurn) {
+        int score = evaluate();
 
-        if (turn) {
+        if (score == 1 || score == -1) return score;
+
+        if (grid.getAvailableMoves().isEmpty()) return 0;
+
+        if (!isHumanTurn) {
             int best = Integer.MIN_VALUE;
 
             for (int[] move : grid.getAvailableMoves()) {
                 int y = move[0];
                 int x = move[1];
 
-                grid.setCell(y, x, Marker.AI_MARKER.getMarker());
+                grid.setMoveLogic(y, x, Marker.AI_MARKER.getMarker());
 
-                int score = minimax(false);
+                int value = minimax(true);
 
                 grid.undo(y, x);
 
-                best = Math.max(best, score);
+                best = Math.max(best, value);
             }
+
             return best;
+
         } else {
             int best = Integer.MAX_VALUE;
 
@@ -163,13 +162,13 @@ public class Game {
                 int y = move[0];
                 int x = move[1];
 
-                grid.setCell(y, x, Marker.PLAYER_MARKER.getMarker());
+                grid.setMoveLogic(y, x, Marker.PLAYER_MARKER.getMarker());
 
-                int score = minimax(true);
+                int value = minimax(false);
 
                 grid.undo(y, x);
 
-                best = Math.min(best, score);
+                best = Math.min(best, value);
             }
 
             return best;
@@ -189,9 +188,9 @@ public class Game {
             int y = move[0];
             int x = move[1];
 
-            grid.setCell(y, x, Marker.AI_MARKER.getMarker());
+            grid.setMoveLogic(y, x, Marker.AI_MARKER.getMarker());
 
-            int score = minimax(playerTurn);
+            int score = minimax(true); 
 
             grid.undo(y, x);
 
