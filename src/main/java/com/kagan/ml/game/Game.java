@@ -4,6 +4,13 @@ import com.kagan.ml.board.Grid;
 import com.kagan.ml.exception.InvalidMoveException;
 
 public class Game {
+    private final static int AI_CODE_BASE = 1;
+    private final static int MIN_COORD = 1;
+    private final static int MAX_COORD = 1;
+    private final static int Y_COORD = 0;
+    private final static int X_COORD = 1;
+    private final static String INVALID_MOVE_MESSAGE = "Move is invalid";
+
     private final Grid grid;
     private int playerScore;
     private int aiScore;
@@ -51,12 +58,12 @@ public class Game {
     // Checks whether the cell is empty.
     private boolean isCellAvailable(int y, int x) {
         String[][] logic = grid.getMoveTable();
-        return logic[y - 1][x - 1] == null;
+        return logic[y - AI_CODE_BASE][x - AI_CODE_BASE] == null;
     }
 
     // Checks whetehr the move is valid.
     private boolean isMoveEligible(int y, int x) {
-        return y >= 1 && y <= 3 && x >= 1 && x <= 3;
+        return y >= MIN_COORD && y <= MAX_COORD && x >= MIN_COORD && x <= MAX_COORD;
     }
     
     /**
@@ -75,9 +82,12 @@ public class Game {
         }
 
         String marker = Marker.PLAYER_MARKER.getMarker();
-        grid.setMoveLogic(y - 1, x - 1, marker);
-        grid.setCell(2 * (y - 1) + 1, 2 * (x - 1) + 1, marker);
+        grid.setMoveLogic(y - AI_CODE_BASE, x - AI_CODE_BASE, marker);
+        grid.setCell(formatVisualization(y - AI_CODE_BASE), formatVisualization(x - AI_CODE_BASE), marker);
     }
+
+    // Makes the coordinate approproate for visualization.
+    private int formatVisualization(int coord) { return 2 * coord + 1; }
 
     /**
      * Makes the move on the board for AI
@@ -87,16 +97,16 @@ public class Game {
      */
     public void setAIMove(int y, int x) {
         if (!isMoveEligible(y, x)) {
-            throw new InvalidMoveException("Move is invalid");
+            throw new InvalidMoveException(INVALID_MOVE_MESSAGE);
         }
 
         if (!isCellAvailable(y, x)) {
-            throw new InvalidMoveException("Move is invalid");
+            throw new InvalidMoveException(INVALID_MOVE_MESSAGE);
         }
 
         String marker = Marker.AI_MARKER.getMarker();
-        grid.setMoveLogic(y - 1, x - 1, marker);
-        grid.setCell(2 * (y - 1) + 1, 2 * (x - 1) + 1, marker);
+        grid.setMoveLogic(y - AI_CODE_BASE, x - AI_CODE_BASE, marker);
+        grid.setCell(formatVisualization(y - AI_CODE_BASE), formatVisualization(x - AI_CODE_BASE), marker);
     }
 
     /**
@@ -141,8 +151,8 @@ public class Game {
             int best = Integer.MIN_VALUE;
 
             for (int[] move : grid.getAvailableMoves()) {
-                int y = move[0];
-                int x = move[1];
+                int y = move[Y_COORD];
+                int x = move[X_COORD];
 
                 grid.setMoveLogic(y, x, Marker.AI_MARKER.getMarker());
 
@@ -159,8 +169,8 @@ public class Game {
             int best = Integer.MAX_VALUE;
 
             for (int[] move : grid.getAvailableMoves()) {
-                int y = move[0];
-                int x = move[1];
+                int y = move[Y_COORD];
+                int x = move[X_COORD];
 
                 grid.setMoveLogic(y, x, Marker.PLAYER_MARKER.getMarker());
 
@@ -185,8 +195,8 @@ public class Game {
         int[] bestMove = null;
 
         for (int[] move : grid.getAvailableMoves()) {
-            int y = move[0];
-            int x = move[1];
+            int y = move[Y_COORD];
+            int x = move[X_COORD];
 
             grid.setMoveLogic(y, x, Marker.AI_MARKER.getMarker());
 
