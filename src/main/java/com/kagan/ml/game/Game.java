@@ -4,12 +4,12 @@ import com.kagan.ml.board.Grid;
 import com.kagan.ml.exception.InvalidMoveException;
 
 public class Game {
-    private final static int AI_CODE_BASE = 1;
-    private final static int MIN_COORD = 1;
-    private final static int MAX_COORD = 1;
-    private final static int Y_COORD = 0;
-    private final static int X_COORD = 1;
-    private final static String INVALID_MOVE_MESSAGE = "Move is invalid";
+    private static final int AI_CODE_BASE = 1;
+    private static final int MIN_COORD = 1;
+    private static final int MAX_COORD = 1;
+    private static final int Y_COORD = 0;
+    private static final int X_COORD = 1;
+    private static final String INVALID_MOVE_MESSAGE = "Move is invalid";
 
     private final Grid grid;
     private int playerScore;
