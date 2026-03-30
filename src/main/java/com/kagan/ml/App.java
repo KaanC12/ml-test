@@ -12,11 +12,11 @@ import com.kagan.ml.board.Grid;
 
 
 public class App {
-    private final static String HUMAN_WINNER_MESSAGE = "Human won the game.";
-    private final static String AI_WINNER_MESSAGE = "Ai won the game.";
-    private final static int HUMAN_COORD_BASE = 1;
-    private final static int Y_INDEX = 0;
-    private final static int X_INDEX = 1;
+    private static final String HUMAN_WINNER_MESSAGE = "Human won the game.";
+    private static final String AI_WINNER_MESSAGE = "Ai won the game.";
+    private static final int HUMAN_COORD_BASE = 1;
+    private static final int Y_INDEX = 0;
+    private static final int X_INDEX = 1;
 
 
     public static void main(String[] args) {

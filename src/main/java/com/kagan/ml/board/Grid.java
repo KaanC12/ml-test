@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Grid {
-    private final static int BOARD_X_LENGTH = 3;
-    private final static int BOARD_Y_LENGTH = 3;
-
+    private static final int BOARD_X_LENGTH = 3;
+    private static final int BOARD_Y_LENGTH = 3;
+    
     private String[][] grid;
     private String[][] moveTable;
     private int height;

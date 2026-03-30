@@ -3,13 +3,17 @@ package com.kagan.ml.board;
 import com.kagan.ml.board.type.Type;
 
 public class TTOBoard implements Board {
+    private static final String VERTICAL = "|";
+    private static final String HORIZONTAL = "_";
+    private static final String EMPTY_CELL = " ";
+
     private final Grid grid;
 
     public TTOBoard(String type) {
         this.grid = new Grid();
         Type boardType = Type.valueOf(type);
-        int height = 2 * boardType.getHeight() + 1; 
-        int width = 2 * boardType.getWidth() + 1;
+        int height = visualizeData(boardType.getHeight());
+        int width = visualizeData(boardType.getHeight());
 
         grid.setHeight(height);
         grid.setWidth(width);
@@ -20,6 +24,11 @@ public class TTOBoard implements Board {
         grid.setGrid(newGrid);
     }
 
+    // Makes the input suitable for visualization. 
+    private int visualizeData(int input) {
+        return 2 * input + 1;
+    }
+
     /**
      * Builds vertical lines "|".
      */
@@ -27,7 +36,7 @@ public class TTOBoard implements Board {
     public void setVerticals() {
         for (int i = 1; i < grid.getHeight(); i += 2) {
             for (int j = 0; j < grid.getWidth(); j += 2) {
-                grid.setCell(i, j, "|");
+                grid.setCell(i, j, VERTICAL);
             }
         }
     }
@@ -39,7 +48,7 @@ public class TTOBoard implements Board {
     public void setHorizontals() {
         for (int i = 0; i < grid.getHeight(); i += 2) {
             for (int j = 1; j < grid.getWidth(); j += 2) {
-                grid.setCell(i, j, "_");
+                grid.setCell(i, j, HORIZONTAL);
             }
         }
     }
@@ -52,7 +61,7 @@ public class TTOBoard implements Board {
         for (int i = 0; i < grid.getHeight(); i++) {
             for (int j = 0; j < grid.getWidth(); j++) {
                 if (grid.getCell(i, j) == null) {
-                    grid.setCell(i, j, " ");
+                    grid.setCell(i, j, EMPTY_CELL);
                 }
             }
         }
