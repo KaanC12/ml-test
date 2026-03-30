@@ -1,6 +1,11 @@
 package com.kagan.ml.util;
 
 public final class MoveParser {
+    private static final int Y_COORD = 0;
+    private static final int X_COORD = 1;
+    private static final String INPUT_SPLITER = ",";
+
+
     private MoveParser() { }
 
     /**
@@ -13,12 +18,12 @@ public final class MoveParser {
      */
     public static int[] parseMove(String move) {
         int[] coords = new int[2];
-        String[] moveParts = move.split(",");
-        int yCoord = Integer.valueOf(moveParts[0]);
-        int xCoord = Integer.valueOf(moveParts[1]);
+        String[] moveParts = move.split(INPUT_SPLITER);
+        int yCoord = Integer.valueOf(moveParts[Y_COORD]);
+        int xCoord = Integer.valueOf(moveParts[X_COORD]);
 
-        coords[0] = yCoord;
-        coords[1] = xCoord;
+        coords[Y_COORD] = yCoord;
+        coords[X_COORD] = xCoord;
 
         return coords;
     }
