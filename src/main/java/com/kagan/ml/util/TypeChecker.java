@@ -1,6 +1,8 @@
 package com.kagan.ml.util;
 
 public final class TypeChecker {
+    private static final int INPUT_LENGTH = 3;
+    private static final String TYPE_SPLITER = "_";
 
     private TypeChecker() { }
 
@@ -9,9 +11,9 @@ public final class TypeChecker {
     } 
 
     public static boolean isTypeCorrect(String type) {
-        String[] typeParts = type.split("_");
+        String[] typeParts = type.split(TYPE_SPLITER);
 
-        if (typeParts.length != 3) {
+        if (typeParts.length != INPUT_LENGTH) {
            return false; 
         }
 
