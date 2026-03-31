@@ -3,6 +3,21 @@ package com.kagan.ml.game;
 import com.kagan.ml.board.Grid;
 import com.kagan.ml.exception.InvalidMoveException;
 
+/**
+ * Represents the main game logic and states.
+ * 
+ * <h3>This class is responsible for:</h3>
+ * <ul>
+ *  <li>Managing player turns.</li>
+ *  <li>Validating and applying moves.</li>
+ *  <li>Applying minimax algorithm</li>
+ *  <li>Uses {@link Grid} to manage tic tac toe board.</li>
+ * 
+ * </ul>
+ * 
+ * @author Kaan Turgut
+ * 
+ */
 public class Game {
     private static final int AI_CODE_BASE = 1;
     private static final int MIN_COORD = 1;
