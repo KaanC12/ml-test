@@ -12,17 +12,14 @@ public class Game {
     private static final String INVALID_MOVE_MESSAGE = "Move is invalid";
 
     private final Grid grid;
-    private int playerScore;
-    private int aiScore;
     private boolean playerTurn; // true: Human && false: AI
 
     public Game(Grid grid) {
         this.grid = grid;
-        this.playerScore = 0;
-        this.aiScore = 0;
         this.playerTurn = true;
 
     }
+
 
     /**
      * Shows whose turn.
