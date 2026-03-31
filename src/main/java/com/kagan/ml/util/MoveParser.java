@@ -1,5 +1,12 @@
 package com.kagan.ml.util;
 
+/**
+ * Parses a string representation of a move into coordinate values.
+ * 
+ * <p>The expected input format is "y,x" (e.g "1,2").
+ * 
+ * @author Kaan Turgut
+ */
 public final class MoveParser {
     private static final int Y_COORD = 0;
     private static final int X_COORD = 1;
