@@ -11,6 +11,8 @@ import com.kagan.ml.board.type.Type;
  *  <li>{@code setHorizontals()} sets horizontal edges of the board.</li>
  *  <li>{@code setSpaces()} sets the empy spaces as " ".</li>
  * </ul>
+ * 
+ * @author Kaan Turgut
  */
 public class TTOBoard implements Board {
     private static final String VERTICAL = "|";

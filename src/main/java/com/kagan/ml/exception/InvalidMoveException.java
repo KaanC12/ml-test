@@ -2,6 +2,8 @@ package com.kagan.ml.exception;
 
 /**
  * Thrown when a move is invalid in the game.
+ * 
+ * @author Kaan Turgut
  */
 public class InvalidMoveException extends RuntimeException {
 

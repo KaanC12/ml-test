@@ -10,7 +10,18 @@ import com.kagan.ml.util.MoveParser;
 import com.kagan.ml.util.TypeChecker;
 import com.kagan.ml.board.Grid;
 
-
+/**
+ * Entry point of the application. 
+ * 
+ * <p>This class is responsible for initializing the game,
+ * setting up the board based on user input</p>
+ * 
+ * <p>Main responsibilities of the class:</p>
+ * <ul>
+ *  <li>Reads the user input and create the desired board.</li>
+ *  <li>Stars and controls the game.</li>
+ * </ul>
+ */
 public class App {
     private static final String HUMAN_WINNER_MESSAGE = "Human won the game.";
     private static final String AI_WINNER_MESSAGE = "Ai won the game.";
