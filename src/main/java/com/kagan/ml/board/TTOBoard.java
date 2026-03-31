@@ -1,7 +1,17 @@
 package com.kagan.ml.board;
 
 import com.kagan.ml.board.type.Type;
-
+/**
+ * Represents the tic tac toe board.
+ * 
+ * <p>Responsible for visualizing grid.
+ * 
+ * <ul>
+ *  <li>{@code setVerticle()} sets horizontal edges of the board.</li>
+ *  <li>{@code setHorizontals()} sets horizontal edges of the board.</li>
+ *  <li>{@code setSpaces()} sets the empy spaces as " ".</li>
+ * </ul>
+ */
 public class TTOBoard implements Board {
     private static final String VERTICAL = "|";
     private static final String HORIZONTAL = "_";
