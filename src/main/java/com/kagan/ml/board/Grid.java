@@ -3,6 +3,17 @@ package com.kagan.ml.board;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents the 3x3 board.
+ * 
+ * <p>Grid consists of 2 main element:
+ * <ul>
+ *  <li>A board that visualize the game.</li>
+ * <li>A board that demonstrates the logic.</li>
+ * </ul>
+ * 
+ * @author Kaan Turgut
+ */
 public class Grid {
     private static final int BOARD_X_LENGTH = 3;
     private static final int BOARD_Y_LENGTH = 3;
