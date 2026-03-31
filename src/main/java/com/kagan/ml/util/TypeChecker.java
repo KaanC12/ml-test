@@ -1,5 +1,10 @@
 package com.kagan.ml.util;
 
+/**
+ * Controls the string representation of board type.
+ * 
+ * @author Kaan Turgut
+ */
 public final class TypeChecker {
     private static final int INPUT_LENGTH = 3;
     private static final String TYPE_SPLITER = "_";
