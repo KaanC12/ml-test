@@ -14,6 +14,7 @@ import com.kagan.ml.board.Grid;
 public class App {
     private static final String HUMAN_WINNER_MESSAGE = "Human won the game.";
     private static final String AI_WINNER_MESSAGE = "Ai won the game.";
+    private static final String INVALID_TYPE_ERROR_MESSAGE = "Invalid input please enter a valid board type.";
     private static final int HUMAN_COORD_BASE = 1;
     private static final int Y_INDEX = 0;
     private static final int X_INDEX = 1;
@@ -29,7 +30,8 @@ public class App {
         String correctedBoardType = TypeChecker.correctTypeInput(boardType);
 
         if (!TypeChecker.isTypeCorrect(correctedBoardType)) {
-            throw new InvalidTypeError("Invalid input please enter a valid board type.");
+            sc.close();
+            throw new InvalidTypeError(INVALID_TYPE_ERROR_MESSAGE);
         }
 
         Director director = new Director();
@@ -68,6 +70,8 @@ public class App {
             System.out.println(grid.toString());
 
         }
+
+        sc.close();
 
         String winner = game.getPlayerTurn() ? AI_WINNER_MESSAGE : HUMAN_WINNER_MESSAGE;
 
