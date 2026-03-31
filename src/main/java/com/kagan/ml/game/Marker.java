@@ -1,5 +1,15 @@
 package com.kagan.ml.game;
 
+/**
+ * Represents the markers used by players in the game.
+ * <p> There are two types of player in the game:
+ * <ul>
+ *  <li>Human is represented by {@code X}</li>
+ *  <li>AI is represented by {@code O}</li>
+ * </ul>
+ * 
+ * @author Kaan Turgut
+ */
 public enum Marker {
     /**
      * Marker for AI.
