@@ -41,5 +41,13 @@ class GridTest {
             assertEquals("X", grid.getCell(1, 1));
         }
         
+        @Test
+        void isVerticalBlock_shouldReturnTrue() {
+            grid.setCell(1, 1, "X");
+            grid.setCell(1, 3, "X");
+            grid.setCell(1, 5, "X");
+
+            assertTrue(grid.isVerticalBlock("X"));
+        }
     }
 }
