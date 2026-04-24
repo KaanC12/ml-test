@@ -1,0 +1,12 @@
+/Users/kaan/Desktop/ml-test/src/main/java/com/kagan/ml/App.java
+/Users/kaan/Desktop/ml-test/src/main/java/com/kagan/ml/board/Board.java
+/Users/kaan/Desktop/ml-test/src/main/java/com/kagan/ml/board/Director.java
+/Users/kaan/Desktop/ml-test/src/main/java/com/kagan/ml/board/Grid.java
+/Users/kaan/Desktop/ml-test/src/main/java/com/kagan/ml/board/TTOBoard.java
+/Users/kaan/Desktop/ml-test/src/main/java/com/kagan/ml/board/type/Type.java
+/Users/kaan/Desktop/ml-test/src/main/java/com/kagan/ml/exception/InvalidMoveException.java
+/Users/kaan/Desktop/ml-test/src/main/java/com/kagan/ml/exception/InvalidTypeError.java
+/Users/kaan/Desktop/ml-test/src/main/java/com/kagan/ml/game/Game.java
+/Users/kaan/Desktop/ml-test/src/main/java/com/kagan/ml/game/Marker.java
+/Users/kaan/Desktop/ml-test/src/main/java/com/kagan/ml/util/MoveParser.java
+/Users/kaan/Desktop/ml-test/src/main/java/com/kagan/ml/util/TypeChecker.java
