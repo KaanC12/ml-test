@@ -68,4 +68,35 @@ class GridTest {
             assertTrue(grid.isDiagonalBlock("X"));
         }
     }
+
+    @Nested
+    class Logic {
+
+        @Test
+        void isVerticalLogical_shouldReturnTrue() {
+            grid.setMoveLogic(0, 0, "X");
+            grid.setMoveLogic(1, 0, "X");
+            grid.setMoveLogic(2, 0, "X");
+
+            assertTrue(grid.isVerticalBlockLogic("X"));
+        }
+
+        @Test
+        void isHorizontalLogical_shouldReturnTrue() {
+            grid.setMoveLogic(0, 0, "X");
+            grid.setMoveLogic(0, 1, "X");
+            grid.setMoveLogic(0, 2, "X");
+
+            assertTrue(grid.isHorizontalBlockLogic("X"));
+        }
+
+        @Test
+        void isDiagonalLogical_shouldReturnTrue() {
+            grid.setMoveLogic(0, 0, "X");
+            grid.setMoveLogic(1, 1, "X");
+            grid.setMoveLogic(2, 2, "X");
+
+            assertTrue(grid.isDiagonalBlockLogic("X"));
+        }
+    }
 }
