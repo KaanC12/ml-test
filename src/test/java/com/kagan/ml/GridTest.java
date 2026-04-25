@@ -49,5 +49,23 @@ class GridTest {
 
             assertTrue(grid.isVerticalBlock("X"));
         }
+
+        @Test
+        void isHorizontalBlock_shouldReturnTrue() {
+            grid.setCell(1, 1, "X");
+            grid.setCell(3, 1, "X");
+            grid.setCell(5, 1, "X");
+
+            assertTrue(grid.isHorizontalBlock("X"));
+        }
+
+        @Test
+        void isDiagonalBlock_shouldReturnTrue() {
+            grid.setCell(1, 1, "X");
+            grid.setCell(3, 3, "X");
+            grid.setCell(5, 5, "X");
+
+            assertTrue(grid.isDiagonalBlock("X"));
+        }
     }
 }
