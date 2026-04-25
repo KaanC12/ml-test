@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+
 class GridTest {
     private Grid grid;
     
@@ -97,6 +99,25 @@ class GridTest {
             grid.setMoveLogic(2, 2, "X");
 
             assertTrue(grid.isDiagonalBlockLogic("X"));
+        }
+
+        @Test
+        void undo_shouldClearMove() {
+            grid.setMoveLogic(0, 0, "X");
+            grid.undo(0, 0);
+
+            assertNull(grid.getMoveTable()[0][0]);
+        }
+
+        @Test
+        void getAvailableMoves_shouldReturnList() {
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    grid.setMoveLogic(i, j, "X");
+                }
+            }
+            List<int[]> moves = grid.getAvailableMoves();
+            assertTrue(moves.isEmpty());
         }
     }
 }
