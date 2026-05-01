@@ -1,0 +1,10 @@
+@startuml
+
+
+rectangle "Non-Functional Requirements" {
+    (Maintainable Code)
+    (Reliable System With Testing)
+    (Readable And Structural Code)
+}
+
+@enduml
